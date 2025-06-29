@@ -329,8 +329,6 @@
 
 ---
 
-## Success Measurement Framework
-
 ### Key Performance Indicators (KPIs)
 
 **Usage Metrics:**
