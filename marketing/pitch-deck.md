@@ -4,9 +4,9 @@
 **VIT Faculty Availability System**
 *Revolutionizing Faculty-Student Coordination*
 
-Built by: [Your Name]
+Built by: [Yaswanth Naga Sai K]
 VIT Vellore Student
-[Your Email] | [Your LinkedIn]
+[yaswanthsai5704@gmail.com] | [https://www.linkedin.com/in/yaswanth-naga-sai-k-21b259365/]
 
 ---
 
@@ -57,16 +57,13 @@ VIT Vellore Student
 ---
 
 ## Slide 5: Product Demo
-### 🖥️ **Live Demo Screenshots**
-
-[Include 4 key screenshots:]
+### 🖥️ **Live Demo**
 1. Student dashboard with available faculty
 2. Faculty status update interface
 3. Appointment booking modal
 4. Mobile-responsive design
 
-**Try it yourself:** [Your Netlify URL]
-**Demo credentials:** rajesh.kumar@vit.ac.in / password
+**Try it yourself:** [https://vitfacultytracker.netlify.app/]
 
 ---
 
@@ -202,8 +199,8 @@ VIT Vellore Student
 ## Slide 13: Team & Execution
 ### 👥 **Founder Profile**
 
-**[Your Name]**
-- VIT Vellore Student, [Year] Year [Department]
+**[Yaswanth Naga Sai K]**
+- VIT Vellore Student, [2022-2027][SCORE]
 - Full-stack developer with React/TypeScript expertise
 - Deep understanding of Indian higher education challenges
 - Proven ability to build and deploy production systems
