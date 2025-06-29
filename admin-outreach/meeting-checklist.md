@@ -299,11 +299,3 @@
 - [ ] Discussions about budget and resources
 - [ ] Timeline discussions for implementation
 
-### Red Flags to Watch For
-- [ ] Lack of engagement or questions
-- [ ] Focus only on problems and obstacles
-- [ ] Reluctance to discuss next steps
-- [ ] Concerns about student capability
-- [ ] Budget or resource constraints mentioned repeatedly
-
-Remember: The goal is not just to present your system, but to start a partnership with VIT administration to improve the academic experience for everyone on campus. Stay professional, enthusiastic, and focused on the value you can provide to the VIT community.
