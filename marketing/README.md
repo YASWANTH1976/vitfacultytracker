@@ -43,9 +43,6 @@
 
 - **Live Demo:** [https://vitfacultytracker.netlify.app/]
 - **GitHub Repository:** [https://github.com/YASWANTH1976/]
-- **Demo Credentials:** 
-  - Email: rajesh.kumar@vit.ac.in
-  - Password: password
 
 ## 💼 Business Potential
 
