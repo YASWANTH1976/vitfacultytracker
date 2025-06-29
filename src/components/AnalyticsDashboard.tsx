@@ -171,7 +171,7 @@ export default function AnalyticsDashboard() {
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Average Response Time</span>
-              <span className="font-medium">< 5 minutes</span>
+              <span className="font-medium">&lt; 5 minutes</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Student Satisfaction</span>
