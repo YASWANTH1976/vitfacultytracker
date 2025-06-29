@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Filter, Zap, Star, BarChart3 } from 'lucide-react';
+import { Filter, Zap, Star, BarChart3, MessageSquare, Download, Heart } from 'lucide-react';
 import { useFaculty } from '../context/FacultyContext';
 import FacultyCard from '../components/FacultyCard';
 import AppointmentModal from '../components/AppointmentModal';
@@ -9,6 +9,10 @@ import RecentActivity from '../components/RecentActivity';
 import SmartSearch from '../components/SmartSearch';
 import QRCodeGenerator from '../components/QRCodeGenerator';
 import AnalyticsDashboard from '../components/AnalyticsDashboard';
+import FeedbackSystem from '../components/FeedbackSystem';
+import ChatSupport from '../components/ChatSupport';
+import FavoritesFaculty from '../components/FavoritesFaculty';
+import ExportData from '../components/ExportData';
 
 export default function StudentDashboard() {
   const { faculties } = useFaculty();
@@ -18,6 +22,7 @@ export default function StudentDashboard() {
   const [selectedFaculty, setSelectedFaculty] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [activeTab, setActiveTab] = useState('directory');
+  const [showFeedback, setShowFeedback] = useState(false);
 
   const departments = Array.from(new Set(faculties.map(f => f.department)));
   
@@ -51,7 +56,16 @@ export default function StudentDashboard() {
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Faculty Directory</h1>
               <p className="text-gray-600">Check real-time availability and book appointments</p>
             </div>
-            <QRCodeGenerator />
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={() => setShowFeedback(true)}
+                className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Feedback</span>
+              </button>
+              <QRCodeGenerator />
+            </div>
           </div>
         </div>
 
@@ -76,6 +90,17 @@ export default function StudentDashboard() {
               </button>
               <button
                 className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'favorites'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('favorites')}
+              >
+                <Heart className="w-4 h-4 inline mr-1" />
+                Favorites
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
                   activeTab === 'analytics'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -84,6 +109,17 @@ export default function StudentDashboard() {
               >
                 <BarChart3 className="w-4 h-4 inline mr-1" />
                 Analytics
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'export'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('export')}
+              >
+                <Download className="w-4 h-4 inline mr-1" />
+                Export
               </button>
             </nav>
           </div>
@@ -242,7 +278,18 @@ export default function StudentDashboard() {
           </>
         )}
 
+        {activeTab === 'favorites' && <FavoritesFaculty />}
         {activeTab === 'analytics' && <AnalyticsDashboard />}
+        {activeTab === 'export' && <ExportData />}
+
+        {/* Feedback Modal */}
+        {showFeedback && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="max-w-md w-full">
+              <FeedbackSystem onClose={() => setShowFeedback(false)} />
+            </div>
+          </div>
+        )}
 
         {/* Appointment Modal */}
         {selectedFaculty && (
@@ -251,6 +298,9 @@ export default function StudentDashboard() {
             onClose={() => setSelectedFaculty(null)}
           />
         )}
+
+        {/* Chat Support */}
+        <ChatSupport />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Clock, Phone, Mail, MapPin, Calendar, User, Star, Zap } from 'lucide-react';
+import { Clock, Phone, Mail, MapPin, Calendar, User, Star, Zap, Heart } from 'lucide-react';
 import { Faculty } from '../context/FacultyContext';
+import { useFavorites } from './FavoritesFaculty';
 
 interface FacultyCardProps {
   faculty: Faculty;
@@ -9,6 +10,8 @@ interface FacultyCardProps {
 }
 
 export default function FacultyCard({ faculty, onBookAppointment, viewMode = 'grid' }: FacultyCardProps) {
+  const { isFavorite, toggleFavorite } = useFavorites();
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'available': return 'text-green-600 bg-green-100 border-green-200';
@@ -66,6 +69,14 @@ export default function FacultyCard({ faculty, onBookAppointment, viewMode = 'gr
                 {faculty.status === 'available' && (
                   <Zap className="w-4 h-4 text-green-500" />
                 )}
+                <button
+                  onClick={() => toggleFavorite(faculty.id)}
+                  className={`transition-colors ${
+                    isFavorite(faculty.id) ? 'text-red-500' : 'text-gray-400 hover:text-red-500'
+                  }`}
+                >
+                  <Heart className={`w-4 h-4 ${isFavorite(faculty.id) ? 'fill-current' : ''}`} />
+                </button>
               </div>
               <p className="text-sm text-gray-600">{faculty.designation}</p>
               <p className="text-sm text-blue-600 font-medium">{faculty.department}</p>
@@ -111,7 +122,17 @@ export default function FacultyCard({ faculty, onBookAppointment, viewMode = 'gr
               <Zap className="w-3 h-3 ml-1" />
             )}
           </div>
-          <span className="text-xs text-gray-500">{getTimeAgo(faculty.lastUpdated)}</span>
+          <div className="flex items-center space-x-2">
+            <span className="text-xs text-gray-500">{getTimeAgo(faculty.lastUpdated)}</span>
+            <button
+              onClick={() => toggleFavorite(faculty.id)}
+              className={`transition-colors ${
+                isFavorite(faculty.id) ? 'text-red-500' : 'text-gray-400 hover:text-red-500'
+              }`}
+            >
+              <Heart className={`w-4 h-4 ${isFavorite(faculty.id) ? 'fill-current' : ''}`} />
+            </button>
+          </div>
         </div>
         {faculty.statusMessage && (
           <p className="text-sm text-gray-700 mt-2 font-medium">{faculty.statusMessage}</p>

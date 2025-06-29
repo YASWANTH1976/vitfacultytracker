@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Clock, Users, Calendar, Settings, Bell, CheckCircle } from 'lucide-react';
+import { Clock, Users, Calendar, Settings, Bell, CheckCircle, BarChart3, MessageSquare } from 'lucide-react';
 import { useFaculty } from '../context/FacultyContext';
 import StatusUpdateForm from '../components/StatusUpdateForm';
 import AppointmentsList from '../components/AppointmentsList';
+import FacultyScheduleCalendar from '../components/FacultyScheduleCalendar';
+import FeedbackSystem from '../components/FeedbackSystem';
+import ExportData from '../components/ExportData';
 
 export default function FacultyDashboard() {
   const { currentFaculty, appointments } = useFaculty();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('status');
+  const [showFeedback, setShowFeedback] = useState(false);
 
   if (!currentFaculty) {
     navigate('/faculty/login');
@@ -17,6 +21,10 @@ export default function FacultyDashboard() {
 
   const facultyAppointments = appointments.filter(apt => apt.facultyId === currentFaculty.id);
   const pendingAppointments = facultyAppointments.filter(apt => apt.status === 'pending');
+  const todayAppointments = facultyAppointments.filter(apt => {
+    const today = new Date().toISOString().split('T')[0];
+    return apt.date === today;
+  });
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -43,8 +51,19 @@ export default function FacultyDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Welcome, {currentFaculty.name}</h1>
-          <p className="text-gray-600">{currentFaculty.designation}, {currentFaculty.department}</p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">Welcome, {currentFaculty.name}</h1>
+              <p className="text-gray-600">{currentFaculty.designation}, {currentFaculty.department}</p>
+            </div>
+            <button
+              onClick={() => setShowFeedback(true)}
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Feedback</span>
+            </button>
+          </div>
         </div>
 
         {/* Status Overview */}
@@ -75,8 +94,8 @@ export default function FacultyDashboard() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Total Appointments</p>
-                <p className="text-2xl font-bold text-gray-900 mt-1">{facultyAppointments.length}</p>
+                <p className="text-sm font-medium text-gray-600">Today's Appointments</p>
+                <p className="text-2xl font-bold text-gray-900 mt-1">{todayAppointments.length}</p>
               </div>
               <Users className="h-8 w-8 text-green-600" />
             </div>
@@ -129,12 +148,36 @@ export default function FacultyDashboard() {
               >
                 Appointments ({facultyAppointments.length})
               </button>
+              <button
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'schedule'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('schedule')}
+              >
+                <Calendar className="w-4 h-4 inline mr-1" />
+                Schedule
+              </button>
+              <button
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'export'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('export')}
+              >
+                <BarChart3 className="w-4 h-4 inline mr-1" />
+                Export Data
+              </button>
             </nav>
           </div>
 
           <div className="p-6">
             {activeTab === 'status' && <StatusUpdateForm faculty={currentFaculty} />}
             {activeTab === 'appointments' && <AppointmentsList appointments={facultyAppointments} />}
+            {activeTab === 'schedule' && <FacultyScheduleCalendar faculty={currentFaculty} />}
+            {activeTab === 'export' && <ExportData />}
           </div>
         </div>
 
@@ -156,6 +199,15 @@ export default function FacultyDashboard() {
             </button>
           </div>
         </div>
+
+        {/* Feedback Modal */}
+        {showFeedback && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="max-w-md w-full">
+              <FeedbackSystem facultyId={currentFaculty.id} onClose={() => setShowFeedback(false)} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
