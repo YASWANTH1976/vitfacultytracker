@@ -3,7 +3,7 @@
 > **Real-time faculty availability tracking system designed specifically for VIT Vellore students and faculty**
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://vitfacultytracker.netlify.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)]((https://github.com/YASWANTH1976/vitfacultytracker))
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)]((https://github.com/YASWANTH1976?tab=repositories))
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![React](https://img.shields.io/badge/React-18.3.1-blue)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue)](https://www.typescriptlang.org/)
