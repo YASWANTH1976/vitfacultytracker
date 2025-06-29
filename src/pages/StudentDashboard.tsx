@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Filter, Zap, Star, BarChart3, MessageSquare, Download, Heart } from 'lucide-react';
+import { Filter, Zap, Star, BarChart3, MessageSquare, Download, Heart, Brain, Users as UsersIcon, Bell } from 'lucide-react';
 import { useFaculty } from '../context/FacultyContext';
 import FacultyCard from '../components/FacultyCard';
 import AppointmentModal from '../components/AppointmentModal';
@@ -13,6 +13,11 @@ import FeedbackSystem from '../components/FeedbackSystem';
 import ChatSupport from '../components/ChatSupport';
 import FavoritesFaculty from '../components/FavoritesFaculty';
 import ExportData from '../components/ExportData';
+import AISchedulingAssistant from '../components/AISchedulingAssistant';
+import VirtualQueueSystem from '../components/VirtualQueueSystem';
+import SmartNotifications from '../components/SmartNotifications';
+import CollaborativeScheduling from '../components/CollaborativeScheduling';
+import AdvancedAnalytics from '../components/AdvancedAnalytics';
 
 export default function StudentDashboard() {
   const { faculties } = useFaculty();
@@ -54,7 +59,7 @@ export default function StudentDashboard() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Faculty Directory</h1>
-              <p className="text-gray-600">Check real-time availability and book appointments</p>
+              <p className="text-gray-600">AI-powered faculty coordination system</p>
             </div>
             <div className="flex items-center space-x-4">
               <button
@@ -87,6 +92,50 @@ export default function StudentDashboard() {
                 onClick={() => setActiveTab('directory')}
               >
                 Faculty Directory
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'ai-assistant'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('ai-assistant')}
+              >
+                <Brain className="w-4 h-4 inline mr-1" />
+                AI Assistant
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'queue'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('queue')}
+              >
+                <UsersIcon className="w-4 h-4 inline mr-1" />
+                Virtual Queue
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'collaborative'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('collaborative')}
+              >
+                <UsersIcon className="w-4 h-4 inline mr-1" />
+                Group Meetings
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'notifications'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('notifications')}
+              >
+                <Bell className="w-4 h-4 inline mr-1" />
+                Smart Alerts
               </button>
               <button
                 className={`py-2 px-1 border-b-2 font-medium text-sm ${
@@ -278,8 +327,12 @@ export default function StudentDashboard() {
           </>
         )}
 
+        {activeTab === 'ai-assistant' && <AISchedulingAssistant />}
+        {activeTab === 'queue' && <VirtualQueueSystem />}
+        {activeTab === 'collaborative' && <CollaborativeScheduling />}
+        {activeTab === 'notifications' && <SmartNotifications />}
         {activeTab === 'favorites' && <FavoritesFaculty />}
-        {activeTab === 'analytics' && <AnalyticsDashboard />}
+        {activeTab === 'analytics' && <AdvancedAnalytics />}
         {activeTab === 'export' && <ExportData />}
 
         {/* Feedback Modal */}
