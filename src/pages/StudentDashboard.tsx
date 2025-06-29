@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Filter, Zap, Star, BarChart3, MessageSquare, Download, Heart, Brain, Users as UsersIcon, Bell } from 'lucide-react';
+import { Filter, Zap, Star, BarChart3, MessageSquare, Download, Heart, Brain, Users as UsersIcon, Bell, Shield, Navigation, Link, Wifi } from 'lucide-react';
 import { useFaculty } from '../context/FacultyContext';
 import FacultyCard from '../components/FacultyCard';
 import AppointmentModal from '../components/AppointmentModal';
@@ -18,6 +18,11 @@ import VirtualQueueSystem from '../components/VirtualQueueSystem';
 import SmartNotifications from '../components/SmartNotifications';
 import CollaborativeScheduling from '../components/CollaborativeScheduling';
 import AdvancedAnalytics from '../components/AdvancedAnalytics';
+import BiometricAuthentication from '../components/BiometricAuthentication';
+import ARCampusNavigation from '../components/ARCampusNavigation';
+import BlockchainVerification from '../components/BlockchainVerification';
+import IoTIntegration from '../components/IoTIntegration';
+import AdvancedSecuritySystem from '../components/AdvancedSecuritySystem';
 
 export default function StudentDashboard() {
   const { faculties } = useFaculty();
@@ -59,7 +64,7 @@ export default function StudentDashboard() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Faculty Directory</h1>
-              <p className="text-gray-600">AI-powered faculty coordination system</p>
+              <p className="text-gray-600">AI-powered faculty coordination system with advanced features</p>
             </div>
             <div className="flex items-center space-x-4">
               <button
@@ -82,9 +87,9 @@ export default function StudentDashboard() {
         {/* Tab Navigation */}
         <div className="mb-8">
           <div className="border-b border-gray-200">
-            <nav className="flex space-x-8">
+            <nav className="flex space-x-8 overflow-x-auto">
               <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
                   activeTab === 'directory'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -94,7 +99,7 @@ export default function StudentDashboard() {
                 Faculty Directory
               </button>
               <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
                   activeTab === 'ai-assistant'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -105,7 +110,62 @@ export default function StudentDashboard() {
                 AI Assistant
               </button>
               <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
+                  activeTab === 'ar-navigation'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('ar-navigation')}
+              >
+                <Navigation className="w-4 h-4 inline mr-1" />
+                AR Navigation
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
+                  activeTab === 'iot-sensors'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('iot-sensors')}
+              >
+                <Wifi className="w-4 h-4 inline mr-1" />
+                IoT Sensors
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
+                  activeTab === 'blockchain'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('blockchain')}
+              >
+                <Link className="w-4 h-4 inline mr-1" />
+                Blockchain
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
+                  activeTab === 'security'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('security')}
+              >
+                <Shield className="w-4 h-4 inline mr-1" />
+                Security
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
+                  activeTab === 'biometric'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('biometric')}
+              >
+                <Shield className="w-4 h-4 inline mr-1" />
+                Biometric Auth
+              </button>
+              <button
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
                   activeTab === 'queue'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -116,7 +176,7 @@ export default function StudentDashboard() {
                 Virtual Queue
               </button>
               <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
                   activeTab === 'collaborative'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -127,7 +187,7 @@ export default function StudentDashboard() {
                 Group Meetings
               </button>
               <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
                   activeTab === 'notifications'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -138,7 +198,7 @@ export default function StudentDashboard() {
                 Smart Alerts
               </button>
               <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
                   activeTab === 'favorites'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -149,7 +209,7 @@ export default function StudentDashboard() {
                 Favorites
               </button>
               <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
                   activeTab === 'analytics'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -160,7 +220,7 @@ export default function StudentDashboard() {
                 Analytics
               </button>
               <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
                   activeTab === 'export'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -328,6 +388,11 @@ export default function StudentDashboard() {
         )}
 
         {activeTab === 'ai-assistant' && <AISchedulingAssistant />}
+        {activeTab === 'ar-navigation' && <ARCampusNavigation />}
+        {activeTab === 'iot-sensors' && <IoTIntegration />}
+        {activeTab === 'blockchain' && <BlockchainVerification />}
+        {activeTab === 'security' && <AdvancedSecuritySystem />}
+        {activeTab === 'biometric' && <BiometricAuthentication />}
         {activeTab === 'queue' && <VirtualQueueSystem />}
         {activeTab === 'collaborative' && <CollaborativeScheduling />}
         {activeTab === 'notifications' && <SmartNotifications />}
