@@ -340,10 +340,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👥 Team
 
 **Developer & Project Lead**
-- **Name:** [Your Name]
-- **Role:** Full-Stack Developer, VIT Vellore Student
-- **Email:** [your.email@vitstudent.ac.in]
-- **LinkedIn:** [Your LinkedIn Profile]
+- **Name:** [Yaswanth Naga Sai K]
+- **Email:** [yaswanthsai5704@gmail.com]
+- **LinkedIn:** [https://www.linkedin.com/in/yaswanth-naga-sai-k-21b259365/]
 
 **Acknowledgments**
 - VIT Vellore Faculty for feedback and support
@@ -353,17 +352,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact & Support
 
 ### For Students and Faculty
-- **Email:** support@vitfacultytracker.com
+- **Email:** yaswanthsai5704@gmail.com
 - **Demo Issues:** [GitHub Issues](https://github.com/YASWANTH1976/vit-faculty-availability-system/issues)
 
 ### For VIT Administration
-- **Project Presentation:** [your.email@vitstudent.ac.in]
+- **Project Presentation:** [yaswanthsai5704@gmail.com]
 - **Technical Documentation:** Available in `/admin-outreach/` directory
 - **Implementation Planning:** Contact for detailed discussion
 
 ### For Developers
 - **GitHub:** [Repository Issues](https://github.com/YASWANTH1976/vit-faculty-availability-system/issues)
-- **Technical Questions:** [your.email@vitstudent.ac.in]
+- **Technical Questions:** [yaswanthsai5704@gmail.com]
 
 ## 🌟 Show Your Support
 
@@ -384,6 +383,6 @@ If this project helps you or your institution, please:
 
 ---
 
-**Built with ❤️ by VIT Vellore students, for the VIT community**
+**Built with ❤️ by VIT Vellore student, for the VIT community**
 
 *Making education more efficient, one campus at a time.*
