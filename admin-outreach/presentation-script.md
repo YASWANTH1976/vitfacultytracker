@@ -226,12 +226,3 @@ A: "Only basic professional information is displayed - name, department, cabin n
 
 **Q: What's the cost to the institution?**
 A: "The development is already complete. The main costs would be hosting (minimal) and ongoing maintenance. The time savings and efficiency gains far outweigh these costs."
-
-### Presentation Tips
-1. **Maintain eye contact** and speak confidently
-2. **Use the live demo** effectively - practice beforehand
-3. **Be prepared for technical questions** - know your system inside out
-4. **Show enthusiasm** but remain professional
-5. **Listen actively** to concerns and address them thoughtfully
-6. **Have backup plans** if technology fails
-7. **Bring printed materials** as backup
