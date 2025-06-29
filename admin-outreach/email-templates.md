@@ -288,29 +288,3 @@ P.S. I am also prepared to discuss the potential for expanding this system acros
 ```
 
 ---
-
-## Email Sending Strategy
-
-### Week 1:
-- **Monday:** Send to Department HOD
-- **Wednesday:** Send to Dean of Student Affairs
-- **Friday:** Send to IT Department Head
-
-### Week 2:
-- **Monday:** Follow up with HOD if no response
-- **Wednesday:** Send to Registrar
-- **Friday:** Send to Director (only if you have positive responses from others)
-
-### Follow-up Timeline:
-- **3 days:** Polite follow-up if no acknowledgment
-- **1 week:** Second follow-up with additional information
-- **2 weeks:** Final follow-up with alternative meeting suggestions
-
-### Tips for Success:
-1. **Use official VIT email** if you have one
-2. **Send during business hours** (9 AM - 5 PM)
-3. **Keep emails concise** but comprehensive
-4. **Include your registration number** for credibility
-5. **Attach presentation** if email allows
-6. **Be professional** but show enthusiasm
-7. **Follow up persistently** but respectfully
