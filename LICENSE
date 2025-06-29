@@ -1,0 +1,49 @@
+MIT License
+
+Copyright (c) 2025 Yaswanth Naga Sai K
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Additional Terms for Educational Use
+
+This software was developed as a student project at VIT Vellore to solve real 
+campus challenges. While the MIT License allows commercial use, the original 
+intent is to benefit educational institutions and student communities.
+
+### Encouraged Uses:
+- Educational institutions implementing similar systems
+- Students learning from the codebase
+- Open source contributions and improvements
+- Non-profit educational initiatives
+
+### Attribution Request:
+While not legally required, we kindly request that any substantial use of this 
+code includes attribution to:
+- Original Developer: Yaswanth Naga Sai K
+- Institution: VIT Vellore
+- Project: VIT Faculty Availability System
+
+### Contact for Collaboration:
+For educational institutions interested in implementing or collaborating on 
+similar systems, please contact: yaswanthsai5704@gmail.com
+
+This project demonstrates student innovation in solving real-world educational 
+challenges and serves as an example of practical application development.
