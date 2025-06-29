@@ -41,8 +41,8 @@
 
 ## 🚀 Deployment & Demo
 
-- **Live Demo:** [Your Netlify URL]
-- **GitHub Repository:** [Your GitHub URL]
+- **Live Demo:** [https://vitfacultytracker.netlify.app/]
+- **GitHub Repository:** [https://github.com/YASWANTH1976/]
 - **Demo Credentials:** 
   - Email: rajesh.kumar@vit.ac.in
   - Password: password
@@ -56,7 +56,6 @@
 - **VIT AP:** 12,000+ students, 800+ faculty
 
 ### Expansion Opportunities
-- **Tier 1 Engineering Colleges:** SRM, Manipal, BITS, etc.
 - **University Systems:** Anna University, Delhi University
 - **International Markets:** Southeast Asian universities
 
