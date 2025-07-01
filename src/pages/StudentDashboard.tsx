@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Filter, Zap, Star, BarChart3, MessageSquare, Download, Heart, Brain, Users as UsersIcon, Bell, Shield, Navigation, Link, Wifi } from 'lucide-react';
+import { Filter, Zap, Star, BarChart3, MessageSquare, Download, Heart, Brain, Users as UsersIcon, Bell, Shield, Navigation, Link, Wifi, AlertTriangle, Activity, Calendar as CalendarIcon, MapPin } from 'lucide-react';
 import { useFaculty } from '../context/FacultyContext';
 import FacultyCard from '../components/FacultyCard';
 import AppointmentModal from '../components/AppointmentModal';
@@ -23,6 +23,11 @@ import ARCampusNavigation from '../components/ARCampusNavigation';
 import BlockchainVerification from '../components/BlockchainVerification';
 import IoTIntegration from '../components/IoTIntegration';
 import AdvancedSecuritySystem from '../components/AdvancedSecuritySystem';
+import PredictiveAvailability from '../components/PredictiveAvailability';
+import EmergencyContactSystem from '../components/EmergencyContactSystem';
+import StudentWellnessTracker from '../components/StudentWellnessTracker';
+import CampusResourceFinder from '../components/CampusResourceFinder';
+import AcademicDeadlineTracker from '../components/AcademicDeadlineTracker';
 
 export default function StudentDashboard() {
   const { faculties } = useFaculty();
@@ -56,6 +61,27 @@ export default function StudentDashboard() {
     setSelectedFaculty(faculty.id);
   };
 
+  const tabs = [
+    { id: 'directory', label: 'Faculty Directory', icon: null },
+    { id: 'ai-predictions', label: 'AI Predictions', icon: Brain },
+    { id: 'emergency', label: 'Emergency Help', icon: AlertTriangle },
+    { id: 'wellness', label: 'Wellness Tracker', icon: Activity },
+    { id: 'deadlines', label: 'Deadlines', icon: CalendarIcon },
+    { id: 'campus-resources', label: 'Campus Resources', icon: MapPin },
+    { id: 'ai-assistant', label: 'AI Assistant', icon: Brain },
+    { id: 'ar-navigation', label: 'AR Navigation', icon: Navigation },
+    { id: 'iot-sensors', label: 'IoT Sensors', icon: Wifi },
+    { id: 'blockchain', label: 'Blockchain', icon: Link },
+    { id: 'security', label: 'Security', icon: Shield },
+    { id: 'biometric', label: 'Biometric Auth', icon: Shield },
+    { id: 'queue', label: 'Virtual Queue', icon: UsersIcon },
+    { id: 'collaborative', label: 'Group Meetings', icon: UsersIcon },
+    { id: 'notifications', label: 'Smart Alerts', icon: Bell },
+    { id: 'favorites', label: 'Favorites', icon: Heart },
+    { id: 'analytics', label: 'Analytics', icon: BarChart3 },
+    { id: 'export', label: 'Export', icon: Download }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,8 +89,8 @@ export default function StudentDashboard() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Faculty Directory</h1>
-              <p className="text-gray-600">AI-powered faculty coordination system with advanced features</p>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">VIT Smart Campus System</h1>
+              <p className="text-gray-600">AI-powered comprehensive student support platform</p>
             </div>
             <div className="flex items-center space-x-4">
               <button
@@ -87,149 +113,24 @@ export default function StudentDashboard() {
         {/* Tab Navigation */}
         <div className="mb-8">
           <div className="border-b border-gray-200">
-            <nav className="flex space-x-8 overflow-x-auto">
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'directory'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('directory')}
-              >
-                Faculty Directory
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'ai-assistant'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('ai-assistant')}
-              >
-                <Brain className="w-4 h-4 inline mr-1" />
-                AI Assistant
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'ar-navigation'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('ar-navigation')}
-              >
-                <Navigation className="w-4 h-4 inline mr-1" />
-                AR Navigation
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'iot-sensors'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('iot-sensors')}
-              >
-                <Wifi className="w-4 h-4 inline mr-1" />
-                IoT Sensors
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'blockchain'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('blockchain')}
-              >
-                <Link className="w-4 h-4 inline mr-1" />
-                Blockchain
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'security'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('security')}
-              >
-                <Shield className="w-4 h-4 inline mr-1" />
-                Security
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'biometric'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('biometric')}
-              >
-                <Shield className="w-4 h-4 inline mr-1" />
-                Biometric Auth
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'queue'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('queue')}
-              >
-                <UsersIcon className="w-4 h-4 inline mr-1" />
-                Virtual Queue
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'collaborative'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('collaborative')}
-              >
-                <UsersIcon className="w-4 h-4 inline mr-1" />
-                Group Meetings
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'notifications'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('notifications')}
-              >
-                <Bell className="w-4 h-4 inline mr-1" />
-                Smart Alerts
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'favorites'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('favorites')}
-              >
-                <Heart className="w-4 h-4 inline mr-1" />
-                Favorites
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'analytics'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('analytics')}
-              >
-                <BarChart3 className="w-4 h-4 inline mr-1" />
-                Analytics
-              </button>
-              <button
-                className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
-                  activeTab === 'export'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-                onClick={() => setActiveTab('export')}
-              >
-                <Download className="w-4 h-4 inline mr-1" />
-                Export
-              </button>
+            <nav className="flex space-x-4 overflow-x-auto pb-2">
+              {tabs.map((tab) => {
+                const IconComponent = tab.icon;
+                return (
+                  <button
+                    key={tab.id}
+                    className={`py-2 px-3 border-b-2 font-medium text-sm whitespace-nowrap flex items-center space-x-1 ${
+                      activeTab === tab.id
+                        ? 'border-blue-500 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                    onClick={() => setActiveTab(tab.id)}
+                  >
+                    {IconComponent && <IconComponent className="w-4 h-4" />}
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
             </nav>
           </div>
         </div>
@@ -387,6 +288,14 @@ export default function StudentDashboard() {
           </>
         )}
 
+        {/* New Advanced Features */}
+        {activeTab === 'ai-predictions' && <PredictiveAvailability />}
+        {activeTab === 'emergency' && <EmergencyContactSystem />}
+        {activeTab === 'wellness' && <StudentWellnessTracker />}
+        {activeTab === 'deadlines' && <AcademicDeadlineTracker />}
+        {activeTab === 'campus-resources' && <CampusResourceFinder />}
+        
+        {/* Existing Features */}
         {activeTab === 'ai-assistant' && <AISchedulingAssistant />}
         {activeTab === 'ar-navigation' && <ARCampusNavigation />}
         {activeTab === 'iot-sensors' && <IoTIntegration />}
